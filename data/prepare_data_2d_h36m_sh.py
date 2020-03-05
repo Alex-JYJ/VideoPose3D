@@ -54,7 +54,7 @@ def process_subject(subject, file_list, output):
             output[subject][action] = [None, None, None, None]
         
         with h5py.File(f) as hf:
-            positions = hf['poses'].value
+            positions = hf['poses'][()]
             output[subject][action][cam_map[cam]] = positions.astype('float32')    
 
 if __name__ == '__main__':

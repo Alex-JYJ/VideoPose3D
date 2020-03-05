@@ -89,7 +89,7 @@ def import_cpn_poses(path):
     
 def import_sh_poses(path):
     with h5py.File(path) as hf:
-        positions = hf['poses'].value
+        positions = hf['poses'][()]
     return positions.astype('float32')
     
 def suggest_pose_importer(name):
